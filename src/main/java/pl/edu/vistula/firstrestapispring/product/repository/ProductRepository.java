@@ -6,6 +6,8 @@ import pl.edu.vistula.firstrestapispring.product.domain.Product;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.List;
+import java.util.ArrayList;
 
 @Repository
 public class ProductRepository {
@@ -31,5 +33,13 @@ public class ProductRepository {
 
     public Optional<Product> findById(Long id) {
         return Optional.ofNullable(map.get(id));
+    }
+
+    public List<Product> findAll() {
+        return new ArrayList<>(map.values());
+    }
+
+    public void deleteById(Long id) {
+        map.remove(id);
     }
 }
